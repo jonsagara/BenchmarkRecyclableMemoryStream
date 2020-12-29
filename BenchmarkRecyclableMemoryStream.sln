@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{8B7A4399-9988-4725-B34A-56CDAE08FA8A}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkRecyclableMemoryStream.Runner", "src\BenchmarkRecyclableMemoryStream.Runner\BenchmarkRecyclableMemoryStream.Runner.csproj", "{9558B9FA-8E2C-432C-98F2-3B8B9C9E66AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9558B9FA-8E2C-432C-98F2-3B8B9C9E66AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9558B9FA-8E2C-432C-98F2-3B8B9C9E66AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9558B9FA-8E2C-432C-98F2-3B8B9C9E66AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9558B9FA-8E2C-432C-98F2-3B8B9C9E66AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D4634B5-E8F6-4126-ABC1-CEB797E3EF97}
+	EndGlobalSection
+EndGlobal
