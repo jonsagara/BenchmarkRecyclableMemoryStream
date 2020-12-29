@@ -8,6 +8,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
 {
     [SimpleJob(RuntimeMoniker.NetCoreApp50)]
     [MemoryDiagnoser]
+    [MarkdownExporterAttribute.GitHub]
     public class SerializeAndSignHarness
     {
         private WidgetEnvelope WidgetEnvelope { get; } = new WidgetEnvelope();
@@ -50,7 +51,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
         }
 
         [Benchmark]
-        public async Task SerializeToStreamAndSign()
+        public async Task SerializeToMemoryStreamAndSign()
         {
             var signature = await SerializeAndSignHelper.SerializeToMemoryStreamAndSign(WidgetEnvelope);
         }
