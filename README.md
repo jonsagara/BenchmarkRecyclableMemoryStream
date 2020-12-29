@@ -94,7 +94,7 @@ What if we could reduce allocations by using a `MemoryStream`?
 
 ## Second attempt: `MemoryStream` ##
 
-Next, I tried reducing allocations by using a `MemoryStream` to hold the serialized JSON, as well as be used to compute the signature:
+Next, I tried reducing allocations by using a `MemoryStream` to hold the serialized JSON, as well to compute the signature:
 
 ```csharp
 /// <summary>
