@@ -16,7 +16,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
         /// <summary>
         /// Serialize to strings using camelCase property names.
         /// </summary>
-        private static readonly JsonSerializerSettings _camelCaseSettings = new()
+        private static readonly JsonSerializerSettings _camelCaseSettings = new JsonSerializerSettings
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
         };
@@ -24,7 +24,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
         /// <summary>
         /// Serialize to Streams using camelCase property names.
         /// </summary>
-        private static readonly JsonSerializer _camelCaseSerializer = new()
+        private static readonly JsonSerializer _camelCaseSerializer = new JsonSerializer
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
         };
@@ -63,7 +63,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
         /// <summary>
         /// Serialize to a new MemoryStream, then compute the hash of the stream contents.
         /// </summary>
-        public static async Task<string> SerializeToMemoryStreamAndSign(object value)
+        public static string SerializeToMemoryStreamAndSign(object value)
         {
             // *** 
             // Every invocation creates a new MemoryStream. If value is large, the jsonStream
@@ -82,7 +82,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
                 jsonStream.Position = 0L;
 
                 using var hmac = new HMACSHA256(key: _hmacKey);
-                var hashedBytes = await hmac.ComputeHashAsync(jsonStream);
+                var hashedBytes = hmac.ComputeHash(jsonStream);
 
                 return ToFriendlyHashString(hashedBytes);
             }
@@ -91,7 +91,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
         /// <summary>
         /// Serialize to a RecyclableMemoryStream, then compute the hash of the stream contents.
         /// </summary>
-        public static async Task<string> SerializeToRecyclableMemoryStreamAndSign(object value)
+        public static string SerializeToRecyclableMemoryStreamAndSign(object value)
         {
             // ***
             // Every invocation gets a RecyclableMemoryStream from the recyclable memory stream manager. It uses
@@ -110,7 +110,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
                 jsonStream.Position = 0L;
 
                 using var hmac = new HMACSHA256(key: _hmacKey);
-                var hashedBytes = await hmac.ComputeHashAsync(jsonStream);
+                var hashedBytes = hmac.ComputeHash(jsonStream);
 
                 return ToFriendlyHashString(hashedBytes);
             }

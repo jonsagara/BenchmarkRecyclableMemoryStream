@@ -6,7 +6,7 @@ using BenchmarkDotNet.Jobs;
 
 namespace BenchmarkRecyclableMemoryStream.Runner
 {
-    [SimpleJob(RuntimeMoniker.NetCoreApp50)]
+    [SimpleJob(RuntimeMoniker.NetCoreApp31)]
     [MemoryDiagnoser]
     [MarkdownExporterAttribute.GitHub]
     public class SerializeAndSignHarness
@@ -19,7 +19,7 @@ namespace BenchmarkRecyclableMemoryStream.Runner
             // This will result in a JSON string of ~1 MB.
             foreach (var ix in Enumerable.Range(1, 3000))
             {
-                WidgetEnvelope.Widgets.Add(new()
+                WidgetEnvelope.Widgets.Add(new Widget
                 {
                     Id = Guid.NewGuid(),
 
@@ -51,15 +51,15 @@ namespace BenchmarkRecyclableMemoryStream.Runner
         }
 
         [Benchmark]
-        public async Task SerializeToMemoryStreamAndSign()
+        public void SerializeToMemoryStreamAndSign()
         {
-            var signature = await SerializeAndSignHelper.SerializeToMemoryStreamAndSign(WidgetEnvelope);
+            var signature = SerializeAndSignHelper.SerializeToMemoryStreamAndSign(WidgetEnvelope);
         }
 
         [Benchmark]
-        public async Task SerializeToRecyclableMemoryStreamAndSign()
+        public void SerializeToRecyclableMemoryStreamAndSign()
         {
-            var signature = await SerializeAndSignHelper.SerializeToRecyclableMemoryStreamAndSign(WidgetEnvelope);
+            var signature = SerializeAndSignHelper.SerializeToRecyclableMemoryStreamAndSign(WidgetEnvelope);
         }
     }
 }
