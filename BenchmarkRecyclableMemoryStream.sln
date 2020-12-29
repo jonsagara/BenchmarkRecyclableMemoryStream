@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{8B7A4399-9988-4725-B34A-56CDAE08FA8A}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkRecyclableMemoryStream.Runner", "src\BenchmarkRecyclableMemoryStream.Runner\BenchmarkRecyclableMemoryStream.Runner.csproj", "{9558B9FA-8E2C-432C-98F2-3B8B9C9E66AF}"
