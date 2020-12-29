@@ -14,7 +14,8 @@ namespace BenchmarkRecyclableMemoryStream.Runner
 
         public SerializeAndSignHarness()
         {
-            // Create 
+            // Create an object to serialize.
+            // This will result in a JSON string of ~1 MB.
             foreach (var ix in Enumerable.Range(1, 3000))
             {
                 WidgetEnvelope.Widgets.Add(new()
